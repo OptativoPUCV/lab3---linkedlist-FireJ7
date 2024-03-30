@@ -178,17 +178,77 @@ void * popFront(List * list) {
     return popCurrent(list);
 }
 
-void * popBack(List * list) {
+void * popBack(List * list) 
+{  
+    if (list == NULL) {
+      return NULL;
+    }
+    if (list->tail == NULL) {
+      return NULL;
+    }
+    Node * aux = list->tail;
+    list->tail = list->tail->prev;
+    if (list->tail != NULL)
+    {
+      list->tail->next = NULL;
+      
+    }
+    else
+    {
+      list->head = NULL;
+      
+    }
+    void * data = aux->data;
+    free(aux);
+    return data;
+  
     list->current = list->tail;
     return popCurrent(list);
 }
 
-void * popCurrent(List * list) {
-    return NULL;
+void * popCurrent(List * list) 
+{ 
+    if (list == NULL) {
+      return NULL;
+    }
+    if (list->current == NULL) {
+      return NULL;
+    }
+    Node * aux = list->current;
+    if (list->current->prev != NULL)
+    {
+      list->current->prev->next = list->current->next;
+      
+    }
+    else
+    {
+      list->head = list->current->next;
+      
+    }
+    if (list->current->next != NULL)
+    {
+      list->current->next->prev = list->current->prev;
+      
+    }
+    else
+    {
+      list->tail = list->current->prev;
+      
+    }
+    void * data = aux->data;
+    free(aux);
+    return data;
+  
 }
 
-void cleanList(List * list) {
-    while (list->head != NULL) {
+void cleanList(List * list) 
+{
+    while (list->head != NULL)
+      {
         popFront(list);
-    }
+        
+        
+      }
+  
+   
 }

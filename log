@@ -56,3 +56,9 @@ Sat 30 Mar 2024 10:30:09 PM UTC:
  tests:  11|1
 total_score: 55/70
 0794b5b
+Sat 30 Mar 2024 10:32:28 PM UTC: 
+ list.c | 68 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++----
+ 1 file changed, 64 insertions(+), 4 deletions(-)
+ tests:  12|0
+total_score: 70/70
+ecee3ac
