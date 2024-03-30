@@ -125,8 +125,6 @@ void pushBack(List * list, void * data)
       list->tail->next = new;
       list->tail = new;
     }
-    list->current = list->tail;
-    pushCurrent(list,data);
 }
 
 void pushCurrent(List * list, void * data) {
